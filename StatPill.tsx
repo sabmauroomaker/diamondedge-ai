@@ -1,0 +1,1 @@
+export default function StatPill({children,type='good'}:{children:React.ReactNode,type?:'good'|'bad'|'neutral'}){return <span className={`px-2 py-1 rounded-lg text-sm font-semibold ${type==='good'?'stat-good':type==='bad'?'stat-bad':'bg-zinc-800 text-zinc-200'}`}>{children}</span>}

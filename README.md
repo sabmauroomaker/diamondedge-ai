@@ -1,7 +1,2 @@
-# DiamondEdge AI
-
-Clickable MLB prop research dashboard demo.
-
-## Run
-npm install
-npm run dev
+# DiamondEdge AI v6
+Safe build with clickable prop pages, slate dashboard, pitcher rows, detail terminal, and demo data.

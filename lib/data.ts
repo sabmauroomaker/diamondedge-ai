@@ -1,33 +1,50 @@
-import { Prop } from './types'
-const arsenalA = [
- {name:'Sinker',usage:29.1,pa:88,ba:.218,xba:.240,xwoba:.291,whiff:13.7,k:12.8,hard:34.1},
- {name:'Curveball',usage:21.5,pa:61,ba:.196,xba:.218,xwoba:.244,whiff:31.2,k:33.9,hard:29.4},
- {name:'Four Seamer',usage:18.2,pa:55,ba:.245,xba:.263,xwoba:.335,whiff:19.5,k:22.2,hard:42.0},
- {name:'Slider',usage:14.3,pa:41,ba:.207,xba:.246,xwoba:.298,whiff:28.1,k:30.0,hard:31.6},
- {name:'Changeup',usage:9.8,pa:32,ba:.250,xba:.271,xwoba:.321,whiff:22.4,k:18.8,hard:36.0}
-]
-const rays = [
- {order:1,name:'Y. Díaz',hand:'RHB',pa:254,ba:.286,k:14.2,weakness:'Curveball whiff'},
- {order:2,name:'J. DeLuca',hand:'RHB',pa:183,ba:.241,k:22.4,weakness:'Sinker grounders'},
- {order:3,name:'J. Caminero',hand:'RHB',pa:266,ba:.272,k:24.7,weakness:'Slider chase'},
- {order:4,name:'J. Aranda',hand:'LHB',pa:220,ba:.268,k:23.8,weakness:'Curveball chase'},
- {order:5,name:'B. Lowe',hand:'LHB',pa:246,ba:.236,k:28.9,weakness:'High fastball'},
- {order:6,name:'T. Walls',hand:'SH',pa:160,ba:.215,k:25.1,weakness:'Breaking ball'},
- {order:7,name:'C. Simpson',hand:'LHB',pa:144,ba:.260,k:21.6,weakness:'Offspeed'},
- {order:8,name:'N. Fortes',hand:'RHB',pa:116,ba:.206,k:27.0,weakness:'Slider'},
- {order:9,name:'J. Caballero',hand:'RHB',pa:198,ba:.238,k:23.9,weakness:'Curveball'}
-]
-const baseStats = [
- {label:'Barrel%', value:'8.9%', avg:'7.6%', good:false}, {label:'HardHit%', value:'38.1%', avg:'37.1%', good:true},
- {label:'K%', value:'24.8%', avg:'22.2%', good:true}, {label:'BB%', value:'7.2%', avg:'8.4%', good:true},
- {label:'xBA', value:'.231', avg:'.243', good:true}, {label:'xSLG', value:'.381', avg:'.408', good:true},
- {label:'WHIP', value:'1.14', good:true}, {label:'ERA', value:'3.42', good:true}
-]
-export const props: Prop[] = [
- {id:'lugo-k-45',player:'Seth Lugo',team:'KC',opponent:'TB',game:'Royals @ Rays',market:'Pitcher Strikeouts',line:'Over 4.5',odds:'-115',side:'Over',confidence:68,edge:14.2,projection:'5.4 Ks',tag:'Favorable',type:'K',headshot:'SL',summary:'Pitch mix matches Tampa contact holes and the 4.5 line gives room without needing a ceiling start.',risk:'Rays are not a reckless K team so Lugo needs called strikes and breaking-ball whiffs.',recent:[3,6,5,4,5,6,4,2,7,5],recentLine:4.5,statline:baseStats,arsenal:arsenalA,teamSplits:{title:'Tampa Bay vs RHP',items:[{label:'K%',value:'23.7%',good:true},{label:'O-Swing%',value:'31.8%',good:true},{label:'Contact%',value:'76.9%',good:true},{label:'SwStr%',value:'11.2%',good:true},{label:'wRC+',value:'96',good:true},{label:'ISO',value:'.138',good:true}]},lineup:rays,writeup:['Lugo throws a deep arsenal so this is not one pitch carrying the play. Tampa has several bats that chase breaking balls and Lugos curveball/slider combo grades as the cleanest K path.','The 4.5 number matters because he does not need 7+ to pay it off. A normal 90 pitch workload with 22 to 24 batters faced puts 5 strikeouts in range.','Main risk is Tampa staying contact heavy early and forcing Lugo into quick balls in play instead of two strike counts.']},
- {id:'messick-outs-u175',player:'Parker Messick',team:'CLE',opponent:'CWS',game:'Guardians @ White Sox',market:'Pitching Outs',line:'Under 17.5',odds:'-120',side:'Under',confidence:71,edge:15.4,projection:'16.8 outs',tag:'Favorable',type:'Outs',headshot:'PM',summary:'Recent workload lives in the 5 to 6 inning band and 18 outs requires a cleaner leash than he usually gets.',risk:'Weak opponent can create efficient innings and stretch him into the sixth.',recent:[15,17,18,16,17,15,16,18,14,17],recentLine:17.5,statline:[...baseStats,{label:'L5 IP/start',value:'5.3',good:false},{label:'P/IP',value:'16.7',good:false}],arsenal:arsenalA.map(p=>({...p,usage:Math.max(6,p.usage-3)})),teamSplits:{title:'Chicago White Sox vs LHP',items:[{label:'K%',value:'24.9%',good:false},{label:'BB%',value:'7.1%',good:true},{label:'OBP',value:'.296',good:true},{label:'wRC+',value:'84',good:true},{label:'GB%',value:'44.0%',good:false},{label:'Team Total',value:'3.4',good:true}]},lineup:rays.map((b,i)=>({...b,name:['M. Vargas','L. Robert Jr','A. Benintendi','A. Vaughn','E. Sosa','K. Teel','C. Montgomery','B. Baldwin','J. Amaya'][i],hand:i%3===1?'RHB':'LHB',k:20+i})),writeup:['This is a workload under more than a fade of talent. Messick can pitch fine and still land short because 17.5 asks for 18 outs.','The rolling profile points to 5.1 to 5.2 innings more often than a clean full six. That makes the under live even in a competitive start.','The danger is the White Sox failing to extend innings and giving him a cheap pitch count path.']},
- {id:'pca-hrr-15',player:'Pete Crow-Armstrong',team:'CHC',opponent:'NYM',game:'Cubs @ Mets',market:'Hits + Runs + RBIs',line:'Over 1.5',odds:'+105',side:'Over',confidence:64,edge:9.8,projection:'1.9 HRR',tag:'Neutral',type:'HRR',headshot:'PCA',summary:'Volume plus speed gives multiple ways to clear without needing a homer.',risk:'Lower team total or batting fifth can cap plate appearances.',recent:[2,1,3,2,4,1,2,0,3,2],recentLine:1.5,statline:[{label:'AVG',value:'.292',avg:'.248',good:true},{label:'SLG',value:'.521',avg:'.408',good:true},{label:'HardHit%',value:'42.1%',good:true},{label:'K%',value:'19.1%',good:true},{label:'L10 Hit Rate',value:'80%',good:true},{label:'Team R/G',value:'4.7',good:true}],arsenal:arsenalA,lineup:rays,teamSplits:{title:'Cubs vs RHP',items:[{label:'AVG',value:'.255',good:true},{label:'OBP',value:'.329',good:true},{label:'SLG',value:'.421',good:true},{label:'K%',value:'21.0%',good:true},{label:'wRC+',value:'108',good:true},{label:'ISO',value:'.166',good:true}]},writeup:['PCA has paths through hits, runs, and RBI so this is a better volume bet than a pure power bet.','The profile gets stronger if he stays in the top five because he gets RBI chances and enough plate appearances to run into two events.','Risk is mostly context. If Chicago struggles to turn the lineup over, HRR can die even with one hit.']},
- {id:'woo-k-55',player:'Bryan Woo',team:'SEA',opponent:'PIT',game:'Mariners @ Pirates',market:'Pitcher Strikeouts',line:'Over 5.5',odds:'+100',side:'Over',confidence:73,edge:18.1,projection:'6.8 Ks',tag:'Favorable',type:'K',headshot:'BW',summary:'High fastball usage lines up with a Pirates lineup that whiffs above average vs velocity.',risk:'Woo can be efficient with contact and finish with innings but not strikeouts.',recent:[7,6,8,5,7,4,9,6,7,5],recentLine:5.5,statline:[{label:'K%',value:'27.6%',avg:'22.2%',good:true},{label:'BB%',value:'5.4%',avg:'8.4%',good:true},{label:'CSW%',value:'31.8%',good:true},{label:'Whiff%',value:'28.4%',good:true},{label:'Pitches/start',value:'94',good:true},{label:'xBA',value:'.219',good:true}],arsenal:[{name:'Four Seamer',usage:46.2,pa:120,ba:.205,xba:.221,xwoba:.285,whiff:27.8,k:31.2,hard:32.0},{name:'Sinker',usage:20.4,pa:75,ba:.244,xba:.260,xwoba:.315,whiff:12.1,k:14.7,hard:38.4},{name:'Slider',usage:18.0,pa:66,ba:.188,xba:.211,xwoba:.255,whiff:36.4,k:39.1,hard:28.7},{name:'Changeup',usage:9.5,pa:31,ba:.226,xba:.240,xwoba:.310,whiff:25.2,k:22.2,hard:35.0}],teamSplits:{title:'Pittsburgh vs RHP',items:[{label:'K%',value:'25.6%',good:true},{label:'SwStr%',value:'12.4%',good:true},{label:'Contact%',value:'74.2%',good:true},{label:'wRC+',value:'88',good:true},{label:'ISO',value:'.129',good:true},{label:'O-Swing%',value:'32.5%',good:true}]},lineup:rays.map((b,i)=>({...b,name:['O. Cruz','B. Reynolds','K. Hayes','A. McCutchen','J. Bart','N. Gonzales','J. Triolo','H. Davis','I. Kiner-Falefa'][i],k:[31,22,19,24,29,25,27,30,15][i]})),writeup:['Woo is the type of K profile you want because the fastball creates the count and the slider finishes the plate appearance.','Pittsburgh brings enough swing-and-miss to make 5.5 look light if Woo gets his normal pitch count.','The under case is simple: early-count contact. If Pittsburgh puts four-seamers in play before the slider shows up, Ks can stay short.']}
-]
+import { Prop, Pitch, Batter } from './types'
+
+const names = ['Y. Díaz','B. Witt Jr.','J. Caminero','K. Tucker','A. Judge','J. Soto','P. Goldschmidt','B. Harper','P. Alonso']
+const hands = ['RHB','RHB','RHB','LHB','RHB','LHB','RHB','LHB','RHB']
+function lineup(team:string, weakness:string): Batter[] {
+  return names.map((n,i)=>({ order:i+1, name:n, hand:hands[i], pa:180+i*22, ba:[.286,.294,.272,.281,.303,.267,.244,.258,.248][i], k:[14.2,16.9,24.7,19.8,26.1,18.4,22.5,21.1,25.7][i], weakness, whiff:18+i*1.7, chase:20+i*1.9, bb:5+i*.8 }))
+}
+function arsenal(seed:number): Pitch[] {
+  const f = seed % 5
+  return [
+    {name:'Four Seamer',usage:34+f*2,pa:80+seed,ba:.210+f*.018,xba:.225+f*.015,xwoba:.285+f*.022,whiff:24+f*2.1,k:25+f*2.3,hard:33+f*1.5},
+    {name:'Sinker',usage:18+f,pa:55+seed,ba:.245+f*.022,xba:.255+f*.021,xwoba:.315+f*.018,whiff:11+f*1.5,k:12+f*1.8,hard:38+f*1.4},
+    {name:'Slider',usage:22-f,pa:62+seed,ba:.180+f*.014,xba:.205+f*.012,xwoba:.250+f*.018,whiff:31+f*2.4,k:33+f*2.5,hard:29+f*1.2},
+    {name:'Curveball',usage:13+f,pa:38+seed,ba:.190+f*.012,xba:.215+f*.014,xwoba:.270+f*.02,whiff:28+f*2,k:30+f*1.8,hard:31+f*1.2},
+    {name:'Changeup',usage:9+f,pa:35+seed,ba:.220+f*.018,xba:.240+f*.015,xwoba:.295+f*.02,whiff:22+f*2.2,k:20+f*2,hard:34+f*1.5}
+  ]
+}
+function stats(k:string, era:string, whip:string, csw:string){return [
+ {label:'K%',value:k,avg:'22.2%',good:parseFloat(k)>22.2},{label:'BB%',value:'7.1%',avg:'8.4%',good:true},{label:'CSW%',value:csw,good:parseFloat(csw)>28},{label:'Whiff%',value:'27.8%',good:true},{label:'ERA',value:era,good:parseFloat(era)<4},{label:'WHIP',value:whip,good:parseFloat(whip)<1.25},{label:'HardHit%',value:'36.4%',avg:'37.1%',good:true},{label:'xBA',value:'.231',avg:'.243',good:true}
+]}
+function splits(title:string,k='24.6%'){return {title,items:[{label:'K%',value:k,good:parseFloat(k)>23},{label:'SwStr%',value:'11.8%',good:true},{label:'Contact%',value:'75.2%',good:true},{label:'wRC+',value:'91',good:true},{label:'ISO',value:'.137',good:true},{label:'O-Swing%',value:'32.4%',good:true}]}}
+function books(base:string){return [{book:'DK',odds:base,best:true},{book:'FD',odds:'-118'},{book:'MGM',odds:'-120'},{book:'ESPN',odds:'-115'},{book:'Hard Rock',odds:'+100'}]}
+
+const pitcherRows = [
+ ['lugo-k-45','Seth Lugo','KC','TB','Royals @ Rays','12:10 PM','Pitcher Strikeouts','Over 4.5','-115','Over',74,17.8,88,'5.6 Ks','Favorable','A-','SL',[3,6,5,4,5,6,4,2,7,5],'Tampa Bay vs RHP','Curveball/slider chase'],
+ ['woo-k-55','Bryan Woo','SEA','PIT','Mariners @ Pirates','12:35 PM','Pitcher Strikeouts','Over 5.5','+100','Over',76,18.1,90,'6.8 Ks','Favorable','A','BW',[7,6,8,5,7,4,9,6,7,5],'Pittsburgh vs RHP','High fastball whiff'],
+ ['webb-outs-185','Logan Webb','SF','ATH','Athletics @ Giants','3:45 PM','Pitching Outs','Over 18.5','-105','Over',69,12.7,82,'19.4 outs','Favorable','B+','LW',[18,21,18,20,19,17,21,18,20,19],'Athletics vs RHP','Groundball sinker'],
+ ['brown-k-65','Hunter Brown','HOU','DET','Astros @ Tigers','6:40 PM','Pitcher Strikeouts','Over 6.5','+108','Over',72,15.9,86,'7.3 Ks','Favorable','A-','HB',[7,8,5,9,6,7,8,4,7,6],'Detroit vs RHP','Slider chase'],
+ ['skubal-k-75','Tarik Skubal','DET','HOU','Astros @ Tigers','6:40 PM','Pitcher Strikeouts','Over 7.5','-102','Over',78,19.4,94,'8.7 Ks','Favorable','A+','TS',[8,9,7,10,6,8,9,8,11,7],'Houston vs LHP','Changeup whiff'],
+ ['sanchez-outs-175','Cristopher Sánchez','PHI','WSH','Phillies @ Nationals','6:45 PM','Pitching Outs','Over 17.5','-125','Over',70,13.8,84,'18.6 outs','Favorable','B+','CS',[18,19,17,20,18,18,21,16,19,18],'Washington vs LHP','Weak contact'],
+ ['degrom-k-75','Jacob deGrom','TEX','TOR','Rangers @ Blue Jays','7:10 PM','Pitcher Strikeouts','Over 7.5','+112','Over',75,17.1,91,'8.5 Ks','Favorable','A','JD',[8,6,9,10,7,8,7,11,9,6],'Toronto vs RHP','Velocity miss'],
+ ['senga-k-55','Kodai Senga','NYM','CHC','Cubs @ Mets','7:10 PM','Pitcher Strikeouts','Over 5.5','-110','Over',66,10.2,78,'6.2 Ks','Neutral','B','KS',[4,6,7,5,8,3,6,7,5,6],'Chicago Cubs vs RHP','Ghost fork'],
+ ['cole-k-65','Gerrit Cole','NYY','BOS','Yankees @ Red Sox','7:10 PM','Pitcher Strikeouts','Over 6.5','-120','Over',71,14.8,85,'7.4 Ks','Favorable','A-','GC',[6,7,8,5,9,7,6,8,7,6],'Boston vs RHP','Riding fastball'],
+ ['gallen-outs-175','Zac Gallen','ARI','STL','Diamondbacks @ Cardinals','7:45 PM','Pitching Outs','Under 17.5','-112','Under',65,9.7,76,'16.9 outs','Neutral','B','ZG',[17,15,18,16,17,14,18,16,15,17],'St. Louis vs RHP','Contact innings'],
+ ['abbott-er-25','Andrew Abbott','CIN','MIL','Brewers @ Reds','7:10 PM','Earned Runs','Under 2.5','-105','Under',68,11.6,81,'2.1 ER','Favorable','B+','AA',[2,1,3,2,0,2,4,1,2,2],'Milwaukee vs LHP','Weak ISO'],
+ ['glasnow-k-75','Tyler Glasnow','LAD','MIN','Dodgers @ Twins','7:40 PM','Pitcher Strikeouts','Over 7.5','+105','Over',77,18.9,93,'8.8 Ks','Favorable','A+','TG',[9,8,10,7,11,6,9,8,10,7],'Minnesota vs RHP','High whiff lineup']
+] as const
+
+export const props: Prop[] = pitcherRows.map((r,idx)=>({
+ id:r[0],player:r[1],team:r[2],opponent:r[3],game:r[4],gameTime:r[5],market:r[6],line:r[7],odds:r[8],side:r[9],confidence:r[10],edge:r[11],diamondScore:r[12],projection:r[13],tag:r[14],grade:r[15],type:r[6].includes('Outs')?'Outs':r[6].includes('Earned')?'ER':'K',headshot:r[16],recent:r[17] as number[],recentLine:Number((r[7] as string).match(/[0-9.]+/)?.[0]||5.5),
+ summary:`${r[1]} grades as a ${r[15]} DiamondEdge play because the projected line sits above the book number and the opponent profile shows a clear weakness against ${r[20].toLowerCase()}.`,
+ risk:`The main risk is efficiency working against the prop path or early contact cutting off the strikeout ceiling. This still needs normal pitch count and no blow up inning.`,
+ statline:stats(`${24+idx%6}.${idx%9}%`,`${2.6+(idx%5)*.32}`.slice(0,4),`${1.02+(idx%6)*.05}`.slice(0,4),`${28+(idx%5)*1.1}%`),
+ arsenal:arsenal(idx+8),teamSplits:splits(r[18],`${22+(idx%7)*1.1}%`),lineup:lineup(r[18],r[20]),books:books(r[8]),
+ reasons:[`Opponent weakness vs ${r[20]}`,`Projected workload supports ${r[13]}`,`Best available price gives ${r[11]}% edge`,`Recent form is above market baseline`],
+ risks:['Early-count contact can reduce strikeout chances','Manager leash can shift if pitch count spikes','Confirmed lineup can change the matchup grade'],
+ writeup:[`The clean path is not just raw talent. The model is weighing arsenal fit, opponent swing profile and workload together which is why ${r[1]} gets a ${r[12]} Diamond Score.`,`Compared to the market number, the projection creates enough cushion to rate this as a playable edge instead of a coin flip.`,`This page is built as a full slate demo: every pitcher prop listed on the board has its own clickable research terminal, not just Seth Lugo.`]
+}))
 export function getProp(id:string){ return props.find(p=>p.id===id) }
-export const markets = ['All','K','Outs','Hits','HRR','ER']
+export const markets = ['All','K','Outs','ER','Walks','Hits']

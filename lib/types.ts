@@ -1,6 +1,8 @@
-export type PropType='Strikeouts'|'Pitching Outs'|'Earned Runs'|'Hits'|'Hits + Runs + RBIs';
-export type Pitch={name:string;usage:number;pa:number;ba:number;xba:number;xwoba:number;whiff:number;k:number;hard:number;runValue?:number};
-export type LineupBatter={order:number;name:string;hand:'RHB'|'LHB'|'SH';pa:number;ba:number;k:number;woba:number;vsPitchNotes:string};
-export type TeamSplits={pa:number;bb:number;k:number;avg:number;obp:number;slg:number;iso:number;woba:number;wrc:number;oSwing:number;zSwing:number;swing:number;oContact:number;zContact:number;contact:number;zone:number;swstr:number;ld:number;gb:number;fb:number;iffb:number;hrfb:number};
-export type TrendPoint={date:string;opponent:string;value:number;result:'Over'|'Under';pitchCount?:number;ip?:number;score?:string};
-export type PlayerProp={id:string;player:string;team:string;opponent:string;game:string;hand:string;type:PropType;side:'Over'|'Under';line:number;odds:string;projection:number;confidence:number;edge:number;hitRateSeason:number;hitRateL5:number;hitRateL10:number;avg:number;median:number;status:'Favorable'|'Neutral'|'Risky';risk:string;summary:string;keyAnalysis:string[];matchup:string[];gameScript:string[];stats:Record<string,string|number>;arsenal:Pitch[];teamSplits:TeamSplits;lineup:LineupBatter[];trends:TrendPoint[]};
+export type Pitch = { name:string; usage:number; pa:number; ba:number; xba:number; xwoba:number; whiff:number; k:number; hard:number }
+export type Batter = { order:number; name:string; hand:string; pa:number; ba:number; k:number; weakness:string }
+export type Prop = {
+  id:string; player:string; team:string; opponent:string; game:string; market:string; line:string; odds:string; side:string;
+  confidence:number; edge:number; projection:string; tag:'Favorable'|'Neutral'|'Risky'; type:'K'|'Outs'|'Hits'|'HRR'|'ER';
+  headshot:string; summary:string; risk:string; recent:number[]; recentLine:number; statline:{label:string;value:string;avg?:string;good?:boolean}[];
+  arsenal:Pitch[]; teamSplits:{title:string; items:{label:string; value:string; good?:boolean}[]}; lineup:Batter[]; writeup:string[]
+}
